@@ -7,6 +7,6 @@ public class Son  extends Parent{
 
     @Override
     void partner(String name, int age) {
-        
+
     }
 }
