@@ -11,7 +11,19 @@ public class MaxWealth {
         System.out.println(maximumWealth(arr2DWealth));
     }
 
-    public static int maximumWealth(int[][] accounts) {
+    private static int maximumWealth(int[][] accounts) {
+        int max=0;
+        for (int[] account: accounts) {
+            int sum=0;
+            for (int accSum: account) {
+                sum+=accSum;
+            }
+            max=Math.max(max,sum);
+        }
+        return max;
+    }
+
+    public static int maximumWealth1(int[][] accounts) {
         int ans=Integer.MIN_VALUE;
         for (int person = 0; person < accounts.length; person++) {
             int sum=0;
