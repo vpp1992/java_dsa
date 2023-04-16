@@ -1,27 +1,29 @@
 package com.dsa.java.hackerank;
 
+import java.util.Arrays;
+
 public class SearchInsertPosition {
     public static void main(String[] args) {
-        int[] arr={1,3,5,6};
-        System.out.println(searchInsert(arr,5));
+        int[] numbers= {1, 6 ,4 ,8 ,2};
+        System.out.println(findSmallestInterval(numbers));
     }
-    static int searchInsert(int[] arr ,int target){
-        if (arr.length==0) return -1;
-        if (target>arr.length-1) return -1;
-        int start=0;
-        int end=arr.length-1;
-        while (start<=end){
-            int mid=start+(end-start)/2;
-            if (target<=arr[mid]){
-                end=mid-1;
-            } else if (target>=arr[mid]) {
-                start=mid+1;
 
-            }
-            else {
-                return mid;
+    public static int findSmallestInterval (int [] numbers) {
+        // we write the code here
+
+        Arrays.sort(numbers);//i sorted it
+        int diff = numbers[1] - numbers[0];
+        int diffNeu = 0;
+
+        for(int i = 1; i < numbers.length-1; i++)
+        {
+            diffNeu = numbers[i + 1] - numbers[i];
+            if(diffNeu < diff)
+            {
+                diff = diffNeu;
             }
         }
-        return start;
+        return diffNeu;
     }
+
 }
